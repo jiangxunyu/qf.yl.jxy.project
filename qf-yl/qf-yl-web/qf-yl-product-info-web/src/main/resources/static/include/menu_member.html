@@ -1,0 +1,56 @@
+<nav class="MemberList">
+   <ul>
+      <li><a class="series">个人中心</a>
+        <dl>
+          <dt><a id="menu11" href="Member.html">个人资料</a></dt>
+          <dt><a id="menu12" href="Order.html">我的订单</a></dt>
+          <dt><a id="menu13" href="Focus.html">我关注的商品</a></dt>
+          <dt><a id="menu14" href="Stage.html">我的信息平台</a></dt>
+          <dt><a id="menu15" href="Consult.html">询价信息</a></dt>
+          <dt><a id="menu16" href="Credit.html">积分兑换</a></dt>
+        </dl>
+        <div class="clear"></div>
+      </li>
+      <li><a class="series" >采购信息</a>
+         <dl>
+          <dt><a id="menu21" href="Release.html">我发布的采购</a></dt>
+          <dt><a id="menu22" href="Customized.html">加工定制管理</a></dt>
+        </dl>
+         <div class="clear"></div>
+      </li>
+      <li><a class="series" href="#">供应商管理</a>
+         <dl>
+          <dt><a id="menu31" href="Authentic.html">认证信息</a></dt>
+          <dt><a id="menu32" href="Trade.html">交易管理</a></dt>
+          <dt><a id="menu33" href="ProductManage.html">商品管理</a></dt>
+          <dt><a id="menu34" href="InforMenage.html">信息管理</a></dt>
+          <dt><a id="menu35" href="Resource.html">设备/原料</a></dt>
+          <dt><a id="menu36">模板管理</a></dt>
+          <dt><a id="menu37" href="Message.html">站内信</a></dt>
+        </dl>
+         <div class="clear"></div>
+      </li>
+   </ul>
+</nav>
+<script type="text/javascript">
+    //菜单选中
+    $("#menu" + memID).addClass("onMem");
+	
+	//$("#menu" + menuID).parents("li").find("dl").slideDown(500);
+    $(".MenuList li").each(function () {
+	   var Btn = $(this).children("a");
+		Btn.click(function(){
+		var statis = $(this).parents("li").find("dl").css("display");
+		if(statis == "none"){
+			$(this).parents("li").siblings().find("dl").slideUp(500);
+			$(this).parents("li").find("dl").slideDown(500);
+			$(".MenuList li").children("a").removeClass("onmenu");
+			$(this).addClass("onmenu");
+		}
+		else{
+			$(this).parents("li").find("dl").slideUp(500);
+			$(this).removeClass("onmenu");
+		}
+		});  
+    })
+</script>

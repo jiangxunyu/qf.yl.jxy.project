@@ -1,0 +1,70 @@
+<header class="header" style=" height:100px; background:none;">
+   <div class="Top">
+      <div class="Fool1">
+         <div class="txt">
+            <span>您好，<b>我是VIP</b>欢迎来到海天一线交易平台</span>
+            <a href="#" class="Btn_login"><em class="Texthide">登录</em></a>
+            <a href="#" class="Btn_logout"><em class="Texthide">注册</em></a>
+         </div>
+         <nav class="topNav">
+            <ul class="ul">
+               <li><a href="index.html" style="color:#d03844; font-weight:bold;">返回首页</a></li>
+               <li><a href="#">收藏夹</a></li>
+               <li><a href="#">诚信会员</a></li>
+               <li><a href="#">客服中心</a></li>
+               <li class="member"><a href="Member.html">会员中心</a></li>
+               <li class="myorder"><a href="Cart.html">购物车</a></li>
+               <!--<li class="phone">
+                  <a href="javascript:void(0)">手机版</a>
+                  <div class="PhoneBox">
+                    <figure>
+                       <img src="uploadfiles/image/temp/code.jpg" />
+                       <figcaption>扫我去手机版</figcaption>
+                       <div class="z">◆</div>
+                       <div class="y">◆</div>
+                    </figure>
+                  </div>
+               </li>-->
+            </ul>
+            <div class="clear"></div>
+         </nav>
+         <div class="clear"></div>
+      </div>
+      <div class="Fool2">
+         <div class="logo" style=" margin-top:12px;"><a href="index.html"><img src="images/logo1.png" width="128" height="41" /></a></div>
+         <div class="clear"></div>
+      </div>
+   </div>
+</header>
+<script type="text/javascript">
+   //导航选中
+    $("#nav" + navID).addClass("onnav");
+	
+	//手机版
+	$(".topNav li.phone").hover(function(){ $(this).find(".PhoneBox").show(); },function(){ $(this).find(".PhoneBox").hide();});
+	
+	//类别菜单
+	if(navID == "1"){
+		   $(".MainNav .CategoryList").show();
+		}
+	$(".MainNav .CategoryNav").hover(
+	   function(){
+		   $(this).find(".CategoryList").show();
+	   },
+	   function(){
+		   if(navID == "1"){
+			   $(".MainNav .CategoryList").show();
+			}
+		   else{
+			   $(this).find(".CategoryList").hide();
+			   }
+		   }
+	);
+	
+	//登录之后隐藏 登录，注册
+	var isLogin;
+	if(isLogin == '1'){
+		   $(".Btn_login,.Btn_logout").hide();
+		   $(".Top .Fool1 .txt b").show();
+		}
+</script>

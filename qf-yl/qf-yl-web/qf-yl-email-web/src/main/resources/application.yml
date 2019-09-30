@@ -1,0 +1,8 @@
+server:
+  port: 8098
+dubbo:
+  application:
+    name: email-web
+  registry:
+    address: zookeeper://192.168.2.131:2181
+

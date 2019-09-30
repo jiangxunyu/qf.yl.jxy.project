@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-email-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-product-info-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-product-manage-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-product-type-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-register-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-search-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-shopping-cart-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-sms-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-service/qf-yl-user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-email-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-index-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-product-info-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-product-manage-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-register-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-search-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-shopping-cart-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-sms-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qf-yl-web/qf-yl-sso" charset="UTF-8" />
+  </component>
+</project>

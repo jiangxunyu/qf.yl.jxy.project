@@ -1,0 +1,15 @@
+server:
+  port: 8092
+dubbo:
+  application:
+    name: index-web
+  registry:
+    address: zookeeper://192.168.2.131:2181
+spring:
+  redis:
+    host: 192.168.2.137
+    port: 6379
+    password: 123
+    jedis:
+      pool:
+        max-active: 60

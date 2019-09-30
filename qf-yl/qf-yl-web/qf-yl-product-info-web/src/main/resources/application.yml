@@ -1,0 +1,7 @@
+server:
+  port: 8096
+dubbo:
+  application:
+    name: product-info-web
+  registry:
+    address: zookeeper://192.168.2.131:2181

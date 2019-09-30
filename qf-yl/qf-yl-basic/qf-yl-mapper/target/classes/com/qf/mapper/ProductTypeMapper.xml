@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.ProductTypeMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.ProductType">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="flag" jdbcType="TINYINT" property="flag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="updata_user" jdbcType="BIGINT" property="updataUser" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, name, pid, flag, create_time, update_time, create_user, updata_user
+  </sql>
+
+  <select id="selectProductTypes" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product_type
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product_type
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from product_type
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.qf.entity.ProductType">
+    insert into product_type (id, name, pid, 
+      flag, create_time, update_time, 
+      create_user, updata_user)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{pid,jdbcType=BIGINT}, 
+      #{flag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updataUser,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.ProductType">
+    insert into product_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updataUser != null">
+        updata_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updataUser != null">
+        #{updataUser,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.ProductType">
+    update product_type
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updataUser != null">
+        updata_user = #{updataUser,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.ProductType">
+    update product_type
+    set name = #{name,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=BIGINT},
+      flag = #{flag,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      updata_user = #{updataUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

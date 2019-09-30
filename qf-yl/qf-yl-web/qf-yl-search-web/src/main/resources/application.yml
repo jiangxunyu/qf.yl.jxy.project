@@ -1,0 +1,7 @@
+server:
+  port: 8095
+dubbo:
+  application:
+    name: search-web
+  registry:
+    address: zookeeper://192.168.2.131:2181

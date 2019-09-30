@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="Author" content="">
+    <meta content=" " name="">
+    <title>注册</title>
+
+    <base href="/"/>
+
+    <link rel="stylesheet" type="text/css" href="css/css_whir.css"/>
+    <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
+    <![endif]-->
+    <script src="scripts/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript">
+        var navID = "3";
+    </script>
+</head>
+
+<body>
+<!--top-->
+<header class="header" style=" height:100px; background:none;">
+    <div class="Top">
+        <div class="Fool1">
+            <div class="txt">
+                <span>您好，<b>我是VIP</b>欢迎来到海天一线交易平台</span>
+                <a href="http://localhost:8091/user/login" class="Btn_login"><em class="Texthide">登录</em></a>
+                <a href="/register" class="Btn_logout"><em class="Texthide">注册</em></a>
+            </div>
+            <nav class="topNav">
+                <ul class="ul">
+                    <li><a href="index.html" style="color:#d03844; font-weight:bold;">返回首页</a></li>
+                    <li><a href="#">收藏夹</a></li>
+                    <li><a href="#">诚信会员</a></li>
+                    <li><a href="#">客服中心</a></li>
+                    <li class="member"><a href="Member.html">会员中心</a></li>
+                    <li class="myorder"><a href="Cart.html">购物车</a></li>
+                    <!--<li class="phone">
+                       <a href="javascript:void(0)">手机版</a>
+                       <div class="PhoneBox">
+                         <figure>
+                            <img src="uploadfiles/image/temp/code.jpg" />
+                            <figcaption>扫我去手机版</figcaption>
+                            <div class="z">◆</div>
+                            <div class="y">◆</div>
+                         </figure>
+                       </div>
+                    </li>-->
+                </ul>
+                <div class="clear"></div>
+            </nav>
+            <div class="clear"></div>
+        </div>
+        <div class="Fool2">
+            <div class="logo" style=" margin-top:12px;"><a href="index.html"><img src="images/logo1.png" width="128"
+                                                                                  height="41"/></a></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</header>
+<script type="text/javascript">
+    //导航选中
+    $("#nav" + navID).addClass("onnav");
+
+    //手机版
+    $(".topNav li.phone").hover(function () {
+        $(this).find(".PhoneBox").show();
+    }, function () {
+        $(this).find(".PhoneBox").hide();
+    });
+
+    //类别菜单
+    if (navID == "1") {
+        $(".MainNav .CategoryList").show();
+    }
+    $(".MainNav .CategoryNav").hover(
+        function () {
+            $(this).find(".CategoryList").show();
+        },
+        function () {
+            if (navID == "1") {
+                $(".MainNav .CategoryList").show();
+            } else {
+                $(this).find(".CategoryList").hide();
+            }
+        }
+    );
+
+    //登录之后隐藏 登录，注册
+    var isLogin;
+    if (isLogin == '1') {
+        $(".Btn_login,.Btn_logout").hide();
+        $(".Top .Fool1 .txt b").show();
+    }
+</script><!--top End-->
+
+<section class="Contain">
+    <div class="RBox" style="float: left">
+        <span>邮箱注册</span>
+        <div class="Supply">
+            <form action="/checkIsRegister" method="post">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td align="right" class="tt">
+                            用户名：
+                        </td>
+                        <td class="sure">
+                            <input name="username" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 密码：
+                        </td>
+                        <td class="sure">
+                            <input name="password" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 确认密码：
+                        </td>
+                        <td class="sure">
+                            <input class="text1" maxlength="512" value="" type="text"/><span class="form_err">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 邮箱：
+                        </td>
+                        <td class="sure">
+                            <input name="email" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="sure"><input name="" class="text1 check" type="checkbox"/>请仔细阅读用户协议并确认</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br/>
+                        </td>
+                        <td>
+                            <input class="btn" style=" background:#b9333d;"
+                                   onclick="whir.form.submit('whir_17','76','0','17')" value="提交" type="submit"/>
+                            <input class="btn" style=" background:#929292;"
+                                   onclick="whir.form.submit('whir_17','76','0','17')" value="取消" type="button"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+    <div class="RBox" style="float: left">
+        <span>手机注册</span>
+        <div class="Supply">
+            <form action="/checkRegisterCode" method="post">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td align="right" class="tt">
+                            用户名：
+                        </td>
+                        <td class="sure">
+                            <input name="user.username" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 手机号：
+                        </td>
+                        <td class="sure">
+                            <input id="phone" name="user.phone" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 验证码：
+                        </td>
+                        <td class="sure">
+                            <input name="code" class="text1" maxlength="512" type="text"/>
+                            <button type="button" id="code">验证码</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 邮箱：
+                        </td>
+                        <td class="sure">
+                            <input name="user.email" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 密码：
+                        </td>
+                        <td class="sure">
+                            <input name="user.password" class="text1" maxlength="512" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <span class="form_err"></span> 确认密码：
+                        </td>
+                        <td class="sure">
+                            <input class="text1" maxlength="512" value="" type="text"/><span class="form_err">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="sure"><input name="" class="text1 check" type="checkbox"/>请仔细阅读用户协议并确认</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br/>
+                        </td>
+                        <td>
+                            <input class="btn" style=" background:#b9333d;"
+                                   onclick="whir.form.submit('whir_17','76','0','17')" value="提交" type="submit"/>
+                            <input class="btn" style=" background:#929292;"
+                                   onclick="whir.form.submit('whir_17','76','0','17')" value="取消" type="button"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+</section>
+<!--bottom-->
+<footer class="footer">
+    <div class="Fool1">
+        <div class="BoxL BtNav">
+            <ul class="ul">
+                <li>
+                    <span><img src="images/Btico_1.jpg"/><b>新手指南</b></span>
+                    <dl>
+                        <dd><a href="#">了解缆天</a></dd>
+                        <dd><a href="#">注册新用户</a></dd>
+                        <dd><a href="#">买家入门</a></dd>
+                        <dd><a href="#">商家入门</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_2.jpg"/><b>订单指南</b></span>
+                    <dl>
+                        <dd><a href="#">如何下单</a></dd>
+                        <dd><a href="#">修改订单</a></dd>
+                        <dd><a href="#">取消订单</a></dd>
+                        <dd><a href="#">查看订单进程</a></dd>
+                        <dd><a href="#">支付问题</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_3.jpg"/><b>配送问题</b></span>
+                    <dl>
+                        <dd><a href="#">配送时间</a></dd>
+                        <dd><a href="#">运费报价</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_4.jpg"/><b>供应商服务</b></span>
+                    <dl>
+                        <dd><a href="#">供应商入驻</a></dd>
+                        <dd><a href="#">资质审核</a></dd>
+                        <dd><a href="#">供应商管理</a></dd>
+                        <dd><a href="#">质量管理</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_5.jpg"/><b>帮助中心</b></span>
+                    <dl>
+                        <dd><a href="#">常见问题</a></dd>
+                        <dd><a href="#">电缆百科</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="BoxR">
+            <p class="p">
+                免费会员咨询热线：<b>400-8888-888</b>(免长途费) <br/>
+                客服传真：<b>021-888888888</b><br/>
+                交易安全帮助热线：<b>021-88888888</b>
+            </p>
+            <ul class="ul">
+                <li class="weixin">
+                    <figure class="CodeBox">
+                        <div class="CodeImg"><img src="uploadfiles/image/temp/code_weixin.gif"/><span></span></div>
+                        <figcaption>官方微信</figcaption>
+                    </figure>
+                </li>
+                <li class="weibo">
+                    <figure class="CodeBox">
+                        <div class="CodeImg"><img src="uploadfiles/image/temp/code_weibo.gif"/><span></span></div>
+                        <figcaption>官方微博</figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="Fool2">
+        <div class="Copyright">
+            Copyright © 2014 All rights reserved. ed by <br/>
+            网站备案编号：02010802088888888
+        </div>
+        <div class="imgBox">
+            <ul class="ul">
+                <li><img src="uploadfiles/image/temp/Btimg_1.gif" width="90" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_2.gif" width="73" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_3.gif" width="70" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_4.gif" width="71" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_5.gif" width="71" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_6.gif" width="85" height="30"/></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <!--右边悬浮框-->
+    <div class="FloatBox" id="FloatBox">
+        <div class="Enter">
+            <a href="http:///htdl201412167358/WEB_ZXPT/index.html">
+                <img alt="" src="images/jrzx.png"/>
+            </a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="scripts/float.js"></script>
+<script type="text/javascript">
+    //返回顶部
+    $(".ReturnTop").click(function () {
+        $('body,html').animate({scrollTop: 0}, 1000);
+        return false;
+    });
+    //整站无图处理
+    jQuery.each(jQuery("img"), function (i, n) {
+        jQuery(n).error(function () {
+            n.src = 'uploadfiles/nopic.jpg';
+        });
+        n.src = n.src;
+    });
+</script>
+<!--bottom End-->
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $("#code").click(function () {
+        $.ajax({
+            url:"http://localhost:8099/checkPhone/"+$("#phone").val(),
+            type:"POST",
+            success:function (d) {
+
+            }
+        })
+    })
+
+</script>

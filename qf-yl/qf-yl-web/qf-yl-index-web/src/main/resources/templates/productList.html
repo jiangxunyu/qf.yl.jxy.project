@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="Author" content="">
+    <meta content=" " name="">
+    <title>搜索</title>
+
+    <base href="/"/>
+
+    <link rel="stylesheet" type="text/css" href="css/css_whir.css"/>
+    <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="scripts/html5shiv.v3.72.min.js"></script>
+    <![endif]-->
+    <script src="scripts/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript">
+        var navID = "3";
+    </script>
+</head>
+
+<body>
+<!--top-->
+<header class="header">
+    <div class="Top">
+        <div class="Fool1">
+            <div id="is_login" class="txt">
+                <span>您好，<b>我是VIP</b>欢迎来到海天一线交易平台</span>
+                <a href="http://localhost:8091/user/login" class="Btn_login"><em class="Texthide">登录</em></a>
+                <a href="http://localhost:8093/register" class="Btn_logout"><em class="Texthide">注册</em></a>
+            </div>
+            <nav class="topNav">
+                <ul class="ul">
+                    <li><a href="#">收藏夹</a></li>
+                    <li><a href="#">诚信会员</a></li>
+                    <li><a href="#">客服中心</a></li>
+                    <li class="member"><a href="Member.html">会员中心</a></li>
+                    <li class="myorder"><a href="http://localhost:8097/shopping/showOrder">购物车</a></li>
+                    <!--<li class="phone">
+                       <a href="javascript:void(0)">手机版</a>
+                       <div class="PhoneBox">
+                         <figure>
+                            <img src="uploadfiles/image/temp/code.jpg" />
+                            <figcaption>扫我去手机版</figcaption>
+                            <div class="z">◆</div>
+                            <div class="y">◆</div>
+                         </figure>
+                       </div>
+                    </li>-->
+                </ul>
+                <div class="clear"></div>
+            </nav>
+            <div class="clear"></div>
+        </div>
+        <div class="Fool2">
+            <div class="logo"><a href="index.html"><img src="images/logo3.png" width="284" height="73"/></a></div>
+            <div class="MainSreach">
+                <div class="KeyWord">
+                    <a href="#">产品</a><em>|</em><a href="#">店铺</a><em>|</em><a href="Encyclopedia.html">百科</a><em>|</em><a
+                        href="Supply.html">供求</a>
+                </div>
+                <div class="SreachBox">
+                    <div class="Sreach">
+                        <form action="http://localhost:8095/search/products" method="post" id="search_form">
+                            <input name="keyword" type="text" class="sreach_ipu" id="key"
+                                   onkeydown="entersearch()"/>
+                            <span id="search_btn" class="sreach_btn"><span>搜 索</span></span>
+                        </form>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="Btn_Release">发布询价单</a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <nav class="MainNav">
+            <div class="CategoryNav">
+                <a class="Btn" href="javascript:void(0)"><span>全部商品列表</span></a>
+                <div class="CategoryList">
+                    <ul th:each="first_pro : ${productTypes}" th:if="${first_pro.pid==0}" class="ul">
+                        <li class="Li1"><a class="lb" href="#"><span th:text="${first_pro.name}"></span></a>
+                            <div class="nab">
+                                <span></span>
+                                <div class="SubNav">
+                                    <dl th:each="second_pro : ${productTypes}" th:if="${second_pro.pid==first_pro.id}">
+                                        <dt><a th:text="${second_pro.name}"></a></dt>
+                                    </dl>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="ul NavList">
+                <li id="nav1"><a href="http://localhost:8092/index">首 页</a></li>
+                <li id="nav2"><a href="decoration.html">家装产品</a></li>
+                <li id="nav3"><a href="EnterpriseCenter.html">企业中心</a></li>
+                <li id="nav4"><a href="TradeCenter.html">交易中心</a></li>
+            </ul>
+            <div class="clear"></div>
+        </nav>
+    </div>
+</header>
+<script type="text/javascript">
+    //导航选中
+    $("#nav" + navID).addClass("onnav");
+
+    //手机版
+    $(".topNav li.phone").hover(function () {
+        $(this).find(".PhoneBox").show();
+    }, function () {
+        $(this).find(".PhoneBox").hide();
+    });
+
+    //类别菜单
+    if (navID == "1") {
+        $(".MainNav .CategoryList").show();
+    }
+    $(".MainNav .CategoryNav").hover(
+        function () {
+            $(this).find(".CategoryList").show();
+        },
+        function () {
+            if (navID == "1") {
+                $(".MainNav .CategoryList").show();
+            } else {
+                $(this).find(".CategoryList").hide();
+            }
+        }
+    );
+
+    //登录之后隐藏 登录，注册
+    var isLogin;
+    if (isLogin == '1') {
+        $(".Btn_login,.Btn_logout").hide();
+        $(".Top .Fool1 .txt b").show();
+    }
+</script>
+
+<script type="text/javascript">
+    $(".CategoryList li").each(function () {
+        $(this).find(".lb").hover(function () {
+            var statis = $(this).parents("li").find(".nab").css("display");
+            if (statis == "none") {
+                $(this).parents("li").find(".nab").show();
+            } else {
+                $(this).parents("li").siblings().find(".nab").hide();
+            }
+        }, function () {
+            $(".nab").hide();
+        })
+    })
+    $(".nab").hover(function () {
+        $(this).show();
+    }, function () {
+        $(".nab").hide();
+    })
+</script><!--top End-->
+
+<section class="Contain">
+    <section class="current">
+        <div class="location"><a href="#">首页</a> &gt;<a href="#">企业中心</a> &gt; <span>商家搜索</span></div>
+    </section>
+</section>
+
+<div class="clear"></div>
+<section class="Contain">
+    <div class="qlist">
+        <ul th:each="pro : ${products}">
+            <li>
+                <div class="qysp">
+                    <div class="imgbox"><a th:href="|http://192.168.2.139/${pro.id}|+'.html'"><img style="width: 150px;height: 150px" alt="图片不见了" th:src="${pro.image}"/></a></div>
+                    <div class="qyspms">
+<!--                        <h3><a th:href="|http://localhost:8096/productInfo?id=${pro.id}|" th:utext="${pro.name}"></a></h3>-->
+                        <h3><a th:href="|http://192.168.2.139/${pro.id}|+'.html'" th:utext="${pro.name}"></a></h3>
+                        价格：<em>￥<span style="display: inline-block" th:text="${pro.price}"></span>元</em>
+                        <br/>
+                        卖点：<span style="display: inline-block" th:text="${pro.salePoint}"></span>
+<!--                        <br/>-->
+<!--                        类别：<span style="display: inline-block" th:text="${pro.typeName}"></span>-->
+                    </div>
+                    <div class="qyjs">
+                        <div class="qyb"><img alt="" src="uploadfiles/images/images/qy1.jpg" width="152" height="46"/>
+                        </div>
+                        <span>商家：远东电缆股份有限公司</span>
+                        <span>综合评分：9.8分</span>
+                    </div>
+                </div>
+                <div class="shpf">
+                    <span>商品评分：<em>9.8</em></span>
+                    <a href="#">查看详细</a>
+                </div>
+            </li>
+        </ul>
+        <div class="Pages">
+            <span class="p_count">共有<b>1</b>页/当前第<b>1</b>页</span>
+            <!--<span class="p_total"> 共有<b>3</b>条记录</span>-->
+            <span class="p_page">
+                           <!--<a href="javascript:void(0);" class="a_first">首页</a>-->
+                           <a href="javascript:void(0);" class="a_prev"></a>
+                           <em class="num"><a href="#" class="a_cur">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a
+                                   href="#">5</a></em>
+                           <a href="javascript:void(0);" class='a_next'></a>
+                <!--<a href="javascript:void(0);" class='a_end'>最后页</a>-->
+                        </span>
+            <!--<span class='p_jump'>
+               <b class='f1'>跳转到</b><input type='text' class='i_text' id='_input' value='1' />
+               <b class='f2'>页</b><input type='button' class='i_button' id='_button' onclick=redirectPage_('_input') value='GO' />
+            </span>-->
+            <script language="javascript">
+                $(document).ready(function () {
+                    $(".num").find("a:eq(0)").addClass("a_cur");
+                });
+            </script>
+        </div>
+    </div>
+    <div class="qright">
+        <div class="tj">
+            <div class="qyTitle">
+                <span></span>
+                <a href="#">推荐供应商</a>
+            </div>
+            <div class="gyslist">
+                <div class="bd">
+                    <ul>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy1.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy2.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy3.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy4.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy5.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy6.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy6.jpg" width="235"
+                                             height="50"/></a></li>
+                        <li><a href="#"><img alt="" src="uploadfiles/images/images/qy6.jpg" width="235"
+                                             height="50"/></a></li>
+                    </ul>
+                </div>
+                <div class="next"></div>
+            </div>
+        </div>
+        <div class="viewer">
+            <div class="vTitle">
+                <span></span>
+                <a>您浏览过的商品</a>
+            </div>
+            <div class="vplist">
+                <ul>
+                    <li>
+                        <img alt="" src="uploadfiles/images/images/l1.jpg"/>
+                        <span>远东电线电缆 BVR1平方国标铜芯电线单...</span>
+                        <em>￥2499.00</em>
+                    </li>
+                    <li>
+                        <img alt="" src="uploadfiles/images/images/l3.jpg"/>
+                        <span>远东电线电缆 BVR1平方国标铜芯电线单...</span>
+                        <em>￥2499.00</em>
+                    </li>
+                    <li>
+                        <img alt="" src="uploadfiles/images/images/l4.jpg"/>
+                        <span>远东电线电缆 BVR1平方国标铜芯电线单...</span>
+                        <em>￥2499.00</em>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bottom-->
+<footer class="footer">
+    <div class="Fool1">
+        <div class="BoxL BtNav">
+            <ul class="ul">
+                <li>
+                    <span><img src="images/Btico_1.jpg"/><b>新手指南</b></span>
+                    <dl>
+                        <dd><a href="#">了解缆天</a></dd>
+                        <dd><a href="#">注册新用户</a></dd>
+                        <dd><a href="#">买家入门</a></dd>
+                        <dd><a href="#">商家入门</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_2.jpg"/><b>订单指南</b></span>
+                    <dl>
+                        <dd><a href="#">如何下单</a></dd>
+                        <dd><a href="#">修改订单</a></dd>
+                        <dd><a href="#">取消订单</a></dd>
+                        <dd><a href="#">查看订单进程</a></dd>
+                        <dd><a href="#">支付问题</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_3.jpg"/><b>配送问题</b></span>
+                    <dl>
+                        <dd><a href="#">配送时间</a></dd>
+                        <dd><a href="#">运费报价</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_4.jpg"/><b>供应商服务</b></span>
+                    <dl>
+                        <dd><a href="#">供应商入驻</a></dd>
+                        <dd><a href="#">资质审核</a></dd>
+                        <dd><a href="#">供应商管理</a></dd>
+                        <dd><a href="#">质量管理</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <span><img src="images/Btico_5.jpg"/><b>帮助中心</b></span>
+                    <dl>
+                        <dd><a href="#">常见问题</a></dd>
+                        <dd><a href="#">电缆百科</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="BoxR">
+            <p class="p">
+                免费会员咨询热线：<b>400-8888-888</b>(免长途费) <br/>
+                客服传真：<b>021-888888888</b><br/>
+                交易安全帮助热线：<b>021-88888888</b>
+            </p>
+            <ul class="ul">
+                <li class="weixin">
+                    <figure class="CodeBox">
+                        <div class="CodeImg"><img src="uploadfiles/image/temp/code_weixin.gif"/><span></span></div>
+                        <figcaption>官方微信</figcaption>
+                    </figure>
+                </li>
+                <li class="weibo">
+                    <figure class="CodeBox">
+                        <div class="CodeImg"><img src="uploadfiles/image/temp/code_weibo.gif"/><span></span></div>
+                        <figcaption>官方微博</figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="Fool2">
+        <div class="Copyright">
+            Copyright © 2014 All rights reserved. ed by <br/>
+            网站备案编号：02010802088888888
+        </div>
+        <div class="imgBox">
+            <ul class="ul">
+                <li><img src="uploadfiles/image/temp/Btimg_1.gif" width="90" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_2.gif" width="73" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_3.gif" width="70" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_4.gif" width="71" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_5.gif" width="71" height="30"/></li>
+                <li><img src="uploadfiles/image/temp/Btimg_6.gif" width="85" height="30"/></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <!--右边悬浮框-->
+    <div class="FloatBox" id="FloatBox">
+        <div class="Enter">
+            <a href="http:///htdl201412167358/WEB_ZXPT/index.html">
+                <img alt="" src="images/jrzx.png"/>
+            </a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="scripts/float.js"></script>
+<script type="text/javascript">
+    //返回顶部
+    $(".ReturnTop").click(function () {
+        $('body,html').animate({scrollTop: 0}, 1000);
+        return false;
+    });
+    //整站无图处理
+    jQuery.each(jQuery("img"), function (i, n) {
+        jQuery(n).error(function () {
+            n.src = 'uploadfiles/nopic.jpg';
+        });
+        n.src = n.src;
+    });
+</script>
+<!--bottom End-->
+
+</body>
+</html>
+<script type="text/javascript">
+    //推荐供应商滚动
+    //jQuery(".tj .gyslist").slide({mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true,vis:6});
+    $(function () {
+        $(".gyslist .bd").find("li:gt(5)").hide();
+    })
+    $(".gyslist .next").click(function () {
+        $(".gyslist .bd").find("li").show();
+    })
+
+    $("#search_btn").click(function () {
+        $("#search_form").submit()
+    })
+
+    //显示用户登录状态
+    $.ajax({
+        url:"http://localhost:8091/user/checkIsLogin",
+        type:'GET',
+        data:'json',
+        //允许携带证书
+        xhrFields: {
+            withCredentials: true
+        },
+        //允许跨域
+        crossDomain: true,
+        success:function (d) {
+            console.log(d),
+                $("#is_login").html("欢迎您，"+d.data.username+"\n" +
+                    "                |&nbsp;<a href=\"http://localhost:8091/user/logout\">注销</a>")
+        }
+    })
+
+</script>
+

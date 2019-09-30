@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="qf-yl-user-register-api" />
+        <module name="qf-yl-email-api" />
+        <module name="qf-yl-product-info-service" />
+        <module name="qf-yl-mapper" />
+        <module name="qf-yl-shopping-cart-web" />
+        <module name="qf-yl-email-web" />
+        <module name="qf-yl-product-manage-api" />
+        <module name="qf-yl-shopping-cart-service" />
+        <module name="qf-yl-user-api" />
+        <module name="qf-yl-sms-service" />
+        <module name="qf-yl-common" />
+        <module name="qf-yl-search-web" />
+        <module name="qf-yl-sso" />
+        <module name="qf-yl-web" />
+        <module name="qf-yl-index-web" />
+        <module name="qf-yl-sms-web" />
+        <module name="qf-yl-user-service" />
+        <module name="qf-yl-product-manage-service" />
+        <module name="qf-yl-product-info-web" />
+        <module name="qf-yl-search-api" />
+        <module name="qf-yl-sms-api" />
+        <module name="qf-yl-email-provider" />
+        <module name="qf-yl-register-web" />
+        <module name="qf-yl-register-service" />
+        <module name="qf-yl-product-type-api" />
+        <module name="qf-yl-service" />
+        <module name="qf-yl-product-type-service" />
+        <module name="qf-yl-product-info-api" />
+        <module name="qf-yl-search-service" />
+        <module name="qf-yl-shopping-cart-api" />
+        <module name="qf-yl-entity" />
+        <module name="qf-yl-product-manage-web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="qf-yl-email-provider" options="-parameters" />
+      <module name="qf-yl-email-web" options="-parameters" />
+      <module name="qf-yl-index-web" options="-parameters" />
+      <module name="qf-yl-product-info-service" options="-parameters" />
+      <module name="qf-yl-product-info-web" options="-parameters" />
+      <module name="qf-yl-product-manage-service" options="-parameters" />
+      <module name="qf-yl-product-manage-web" options="-parameters" />
+      <module name="qf-yl-product-type-service" options="-parameters" />
+      <module name="qf-yl-register-service" options="-parameters" />
+      <module name="qf-yl-register-web" options="-parameters" />
+      <module name="qf-yl-search-service" options="-parameters" />
+      <module name="qf-yl-search-web" options="-parameters" />
+      <module name="qf-yl-shopping-cart-service" options="-parameters" />
+      <module name="qf-yl-shopping-cart-web" options="-parameters" />
+      <module name="qf-yl-sms-service" options="-parameters" />
+      <module name="qf-yl-sms-web" options="-parameters" />
+      <module name="qf-yl-sso" options="-parameters" />
+      <module name="qf-yl-user-service" options="-parameters" />
+    </option>
+  </component>
+</project>

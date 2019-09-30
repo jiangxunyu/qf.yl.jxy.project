@@ -1,0 +1,111 @@
+<header class="header">
+   <div class="Top">
+      <div class="Fool1">
+         <div class="txt">
+            <span>您好，<b>我是VIP</b>欢迎来到海天一线交易平台</span>
+            <a href="#" class="Btn_login"><em class="Texthide">登录</em></a>
+            <a href="#" class="Btn_logout"><em class="Texthide">注册</em></a>
+         </div>
+         <nav class="topNav">
+            <ul class="ul">
+               <li><a href="#">收藏夹</a></li>
+               <li><a href="#">诚信会员</a></li>
+               <li><a href="#">客服中心</a></li>
+               <li class="member"><a href="Member.html">会员中心</a></li>
+               <li class="myorder"><a href="Cart.html">购物车</a></li>
+               <!--<li class="phone">
+                  <a href="javascript:void(0)">手机版</a>
+                  <div class="PhoneBox">
+                    <figure>
+                       <img src="uploadfiles/image/temp/code.jpg" />
+                       <figcaption>扫我去手机版</figcaption>
+                       <div class="z">◆</div>
+                       <div class="y">◆</div>
+                    </figure>
+                  </div>
+               </li>-->
+            </ul>
+            <div class="clear"></div>
+         </nav>
+         <div class="clear"></div>
+      </div>
+      <div class="Fool2">
+         <div class="logo"><a href="index.html"><img src="images/logo3.png" width="284" height="73" /></a></div>
+         <div class="MainSreach">
+            <div class="KeyWord">
+               <a href="#">产品</a><em>|</em><a href="#">店铺</a><em>|</em><a href="电缆百科.html">百科</a><em>|</em><a href="Supply.html">供求</a>
+            </div>
+            <div class="SreachBox">
+               <div class="Sreach">
+                  <input name="" type="text" class="sreach_ipu" id="key" value="" onkeydown="entersearch()"/>
+                  <a href="搜索产品列表.html" class="sreach_btn"><span>搜 索</span></a>
+                  <div class="clear"></div>
+               </div>
+               <a href="#" class="Btn_Release">发布询价单</a>
+               <div class="clear"></div>
+            </div>
+         </div>
+         <div class="clear"></div>
+      </div>
+      <nav class="MainNav">
+         <div class="CategoryNav">
+            <a class="Btn" href="javascript:void(0)"><span>全部商品列表</span></a>
+            <div class="CategoryList">
+               <ul class="ul">
+                  <li class="Li1"><a href="#"><span>电气装备电缆</span></a></li>
+                  <li class="Li2"><a href="#"><span>电力电缆</span></a></li>
+                  <li class="Li3"><a href="#"><span>通信、光缆</span></a></li>
+                  <li class="Li4"><a href="#"><span>裸线类</span></a></li>
+                  <li class="Li5"><a href="#"><span>绕组线类</span></a></li>
+                  <li class="Li6"><a href="#"><span>家庭装线</span></a></li>
+               </ul>
+            </div>
+         </div>
+         <ul class="ul NavList">
+            <li id="nav1"><a href="index.html">首 页</a></li>
+            <li id="nav2"><a href="decoration.html">家装产品</a></li>
+            <li id="nav3"><a href="企业中心.html">企业中心</a></li>
+            <li id="nav4"><a href="交易中心.html">交易中心</a></li>
+            <!--<li id="nav5"><a href="#">检测中心</a></li>
+            <li id="nav6"><a href="#">检测中心</a></li>
+            <li id="nav7"><a href="#">会展信息</a></li>
+            <li id="nav8"><a href="#">招标信息</a></li>
+            <li id="nav9"><a href="#">最新行情</a></li>
+            <li id="nav10"><a href="#">论坛</a></li>-->
+         </ul>
+         <div class="clear"></div>
+      </nav>
+   </div>
+</header>
+<script type="text/javascript">
+   //导航选中
+    $("#nav" + navID).addClass("onnav");
+	
+	//手机版
+	$(".topNav li.phone").hover(function(){ $(this).find(".PhoneBox").show(); },function(){ $(this).find(".PhoneBox").hide();});
+	
+	//类别菜单
+	if(navID == "1"){
+		   $(".MainNav .CategoryList").show();
+		}
+	$(".MainNav .CategoryNav").hover(
+	   function(){
+		   $(this).find(".CategoryList").show();
+	   },
+	   function(){
+		   if(navID == "1"){
+			   $(".MainNav .CategoryList").show();
+			}
+		   else{
+			   $(this).find(".CategoryList").hide();
+			   }
+		   }
+	);
+	
+	//登录之后隐藏 登录，注册
+	var isLogin;
+	if(isLogin == '1'){
+		   $(".Btn_login,.Btn_logout").hide();
+		   $(".Top .Fool1 .txt b").show();
+		}
+</script>

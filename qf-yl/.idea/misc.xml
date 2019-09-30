@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-index-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-register-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-register-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-product-manage-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-product-manage-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-product-type-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-search-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-search-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-api/qf-yl-search-api/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-product-info-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-product-info-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-shopping-cart-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-shopping-cart-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-email-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-email-web/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-service/qf-yl-sms-service/pom.xml" />
+        <option value="$PROJECT_DIR$/qf-yl-web/qf-yl-sms-web/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/qf-yl-sms-api/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

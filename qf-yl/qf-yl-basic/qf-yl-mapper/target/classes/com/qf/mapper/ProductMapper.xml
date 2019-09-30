@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.qf.entity.Product">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+    <result column="sale_point" jdbcType="VARCHAR" property="salePoint" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, name, price, image, type_id, type_name, sale_point
+  </sql>
+
+<!--  <select id="selectProductsBySolr" resultMap="BaseResultMap">-->
+<!--     SELECT-->
+<!--     a.id AS id,-->
+<!--     a.name as product_name,-->
+<!--     a.price AS product_price,-->
+<!--     a.image AS product_image,-->
+<!--     a.sale_point AS product_sale_point,-->
+<!--     a.type_name AS product_type_name-->
+<!--     FROM-->
+<!--     product AS a-->
+<!--  </select>-->
+
+  <select id="selectProductsByType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product
+    where type_name = #{typeName,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectProducts" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.qf.entity.Product" useGeneratedKeys="true" keyProperty="id">
+    insert into product (id, name, price, 
+      image, type_id, type_name, sale_point)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{image,jdbcType=VARCHAR}, #{typeId,jdbcType=BIGINT},#{typeName,jdbcType=VARCHAR}, #{salePoint,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.entity.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="typeName != null">
+        type_name,
+      </if>
+      <if test="salePoint != null">
+        sale_point,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="salePoint != null">
+        #{salePoint,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.entity.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="typeName != null">
+        type_name = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="salePoint != null">
+        sale_point = #{salePoint,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.entity.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      image = #{image,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=BIGINT},
+      type_name = #{typeName,jdbcType=VARCHAR},
+      sale_point = #{salePoint,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

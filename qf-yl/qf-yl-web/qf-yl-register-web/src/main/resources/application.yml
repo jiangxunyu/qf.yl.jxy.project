@@ -1,0 +1,7 @@
+server:
+  port: 8093
+dubbo:
+  application:
+    name: register-web
+  registry:
+    address: zookeeper://192.168.2.131:2181
